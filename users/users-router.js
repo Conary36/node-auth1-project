@@ -1,8 +1,8 @@
 const router = require("express").Router();
-//const restricted = require("../auth/restricted-middleware.js"); //added
+const restricted = require("../auth/restricted-middleware.js"); //added
 const Users = require("./users-model.js");
 
-router.get("/", (req, res) => {
+router.get("/",restricted, (req, res) => {
   //added restricted middleware
   //if(req.session && req.session.user){//Not needed due to restricted-middlewar
   Users.find()
